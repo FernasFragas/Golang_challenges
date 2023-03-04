@@ -1,3 +1,4 @@
 # Golang_challenges
 - Journey to learn Go
-- In this repo you can encounter small challenges in go resolved
+- In this repo you can encounter small challenges in go
+- Mainly used to improve and train my golang skills 
