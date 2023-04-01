@@ -26,14 +26,17 @@ func (this *MinStack) Top() int {
 	if itemsLength == 0 {
 		panic("stack is empty")
 	}
-	lastIdx := itemsLength - 1
-	value := this.items[lastIdx]
-	this.items = this.items[:lastIdx]
-	return value
+	return this.items[itemsLength-1]
 }
 
 func (this *MinStack) GetMin() int {
-
+	minValue := this.Top()
+	for _, val := range this.items {
+		if minValue > val {
+			minValue = val
+		}
+	}
+	return minValue
 }
 
 /**
