@@ -8,7 +8,7 @@ The cgo program provides a "foreign function interface" to allow safe calling of
 SWIG extends this capability to C++ libraries. However, linking code from these compilers directly with GCC/LLVM-compiled
 C or C++ programs requires an understanding of the calling conventions for all languages involved and caution for stack limits when calling C or C++ from Go.
 
-# Goroutines intead of threads
+# Goroutines instead of threads
 
 - Goroutines are a way to make concurrency easy to use by multiplexing independently executing functions onto a set of threads.
   When a coroutine blocks, the runtime automatically moves other coroutines on the same operating system thread to a different,
