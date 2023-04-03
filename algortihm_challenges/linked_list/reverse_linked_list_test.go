@@ -1,4 +1,4 @@
-package reverse_linked_list
+package linked_list
 
 import (
 	"github.com/stretchr/testify/assert"
