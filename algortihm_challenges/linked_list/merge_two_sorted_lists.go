@@ -21,29 +21,41 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 		return list1
 	}
 
-	if list1.Next == nil {
+	if list1 == nil {
 		return list2
-	} else if list2.Next == nil {
-		return list1.Next
+	} else if list2 == nil {
+		return list1
 	}
-	if list1.Next == nil && list2.Next == nil {
+	if list1 == nil && list2 == nil {
 		return list1
 	}
 
-	var head = list1
-	for list1.Next != nil || list2.Next != nil {
-		if list1.Val > list2.Val {
-			temp := list1.Next
-			list1.Next = list2.Next
-			list2.Next = temp
-			if head.Val > list2.Val {
-				head = list2
+	head := &ListNode{}
+	curr := head
+	for list1 != nil && list2 != nil {
+		if list1.Val >= list2.Val {
+			curr.Next = list2
+			list2 = list2.Next
+			if curr.Next != nil {
+				curr = curr.Next
+			} else {
+				curr.Next = list1
 			}
 		} else {
+			curr.Next = list1
 			list1 = list1.Next
-			continue
+			if curr.Next != nil {
+				curr = curr.Next
+			} else {
+				curr.Next = list2
+			}
 		}
-		list2 = list2.Next
 	}
-	return head
+
+	if list1 != nil {
+		curr.Next = list1
+	} else if list2 != nil {
+		curr.Next = list2
+	}
+	return head.Next
 }
