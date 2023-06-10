@@ -6,9 +6,9 @@ func TestMyQueue(t *testing.T) {
 	queue := Constructor()
 
 	// Push elements into the queue
-	queue = queue.Push(1)
-	queue = queue.Push(2)
-	queue = queue.Push(3)
+	queue.Push(1)
+	queue.Push(2)
+	queue.Push(3)
 
 	// Peek the front element
 	result := queue.Peek()
@@ -18,7 +18,7 @@ func TestMyQueue(t *testing.T) {
 	}
 
 	// Pop the front element
-	result, queue = queue.Pop()
+	result = queue.Pop()
 	expected = 1
 	if result != expected {
 		t.Errorf("Pop: Expected %d, but got %d", expected, result)
@@ -32,13 +32,13 @@ func TestMyQueue(t *testing.T) {
 	}
 
 	// Pop remaining elements
-	result, queue = queue.Pop()
+	result = queue.Pop()
 	expected = 2
 	if result != expected {
 		t.Errorf("Pop: Expected %d, but got %d", expected, result)
 	}
 
-	result, queue = queue.Pop()
+	result = queue.Pop()
 	expected = 3
 	if result != expected {
 		t.Errorf("Pop: Expected %d, but got %d", expected, result)
